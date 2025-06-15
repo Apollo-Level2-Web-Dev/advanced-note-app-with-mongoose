@@ -64,9 +64,8 @@ usersRoutes.post('/create-user', async (req: Request, res: Response) => {
     }
 })
 usersRoutes.get('/', async (req: Request, res: Response) => {
-    const userEmail = req.query.email ? req.query.email : ""
-    console.log(userEmail);
-    let users = []
+
+    // let users = []
 
     //Filtering
     // if (userEmail) {
@@ -88,7 +87,9 @@ usersRoutes.get('/', async (req: Request, res: Response) => {
     // users = await User.find().skip(10)
 
     //Limiting
-    users = await User.find().limit(2)
+    // users = await User.find().limit(2)
+    
+    const users = await User.find()
 
     res.status(201).json({
         success: true,
